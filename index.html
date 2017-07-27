@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,15 +6,108 @@
     <title>NiuYue</title>
 </head>
 <body>
-<p> Basic Information </p>
-Name:           Yue Niu
-Data of Birth:  Feburary 18, 1991
-Affiliation:    School of Electronics and Information, 
-                Northwestern Polytechnical University (NPU), 
-                Xi’an 710072, P.R. China
-Telephone:   	86-17691241818 (Cellular)
-E-mail:      	niu_yue@mail.nwpu.edu.cn  ;   yue.niu@foxmail.com
+<h1> Basic Information </h1>
+<hr />
+<pre>
+Name:           Yue Niu<br />
+Data of Birth:  Feburary 18, 1991<br />
+Affiliation:    <a href="http://dianzi.nwpu.edu.cn">School of Electronics and Information</a>,<br />
+                Northwestern Polytechnical University (NPU),<br /> 
+                Xi’an 710072, P.R. China<br />
+Telephone:   	86-17691241818 (Cellular)<br />
+E-mail:      	niu_yue@mail.nwpu.edu.cn  ;   yue.niu@foxmail.com<br />
+</pre>
 
+<h1> Education </h1>
+<hr />
+<pre>
+<ul>
+<li>M.Sc. School of Electronics and Information, NPU, 2015.09 – 2017.07.
+<li>B.Sc. School of Electronics and Information, NPU, 2011.09 – 2015.07.
+</ul>
+</pre>
 
+<h1> English Proficiency </h1>
+<hr />
+<pre>
+<ul>
+<li>TOEFL<br />
+99 (Reading: 28; Listening: 28; Speaking: 20; Writing: 23).
+<li>GRE<br />
+Be preparing.
+</ul>
+</pre>
+
+<h1> Research Fields </h1>
+<hr />
+<pre>
+Embedded System, Machine Learning, Image&&Video Processing
+</pre>
+
+<h1> Publications </h1>
+<hr />
+<pre>
+<ol>
+<li>Wei Zhou, <b>Yue Niu</b>, Xiaocong Lian, Xin Zhou, Jiamin Yang, "A Stepped-RAM Reading and Multiplierless VLSI Architecture for Intra Prediction in HEVC", 
+The Pacific-Rim Conference on Multimedia (PCM 2016), Part I, LNCS 9916, pp. 469-478, Xi'an, China, September 2016. 
+(Wei Zhou is my tutor. The main work is done by me.)
+<li><b>Yue Niu</b>, Chunsheng Mei, Zhenyu Liu, Xiangyang Ji, Wei Zhou, Dongsheng Wang, “SENSITIVITY-BASED ACCELERATION AND COMPRESSION ALGORITHM FOR CONVOLUTION NEURAL NETWORK”. 
+Accepted by 2017 IEEE Global Conference on Signal and Information Processing (GlobalSIP).
+<li>Chunsheng Mei, Zhenyu Liu, <b>Yue Niu</b>, Xiangyang Ji, Wei Zhou, Dongsheng Wang, “A 200MHZ 202.4GFLOPS@10.8W VGG16 ACCELERATOR IN XILINX VX690T”. 
+Accepted by 2017 IEEE Global Conference on Signal and Information Processing (GlobalSIP).
+</ol>
+</pre>
+
+<h1> Research Experience </h1>
+<hr />
+<pre>
+<h2>Project 1:</h2>
+A Reconfigurable VLSI Architecture for Intra Prediction in HEVC, Dec 2014~ Dec 2015.
+
+<b>Description</b>
+Intra prediction in HEVC is time-consuming since it has 35 prediction modes and operates in serial mode. 
+Intra prediction can be implemented in highly parallel form in which each of these modes can be computed separately.
+Furthermore, dedicated chips are necessary to handle video processing with high mobility in many real-time applications.
+The contribution of our research is to accelerate intra prediction in HEVC by designing dedicated VLSI architecture, 
+and the architecture supports all prediction modes and units. Our work mainly contains three aspects as follows:
+<ul>
+<li>We propose a stepped-RAM reading method to realize reading necessary RAM pixels in one clock period. 
+Since in intra prediction, variable numbers of pixels are needed for different prediction mode and the data width for RAM is fixed, 
+it is difficult to read all reference pixels from RAM in one clock period if we want the whole architecture operates in pipeline mode. 
+So, stepped-RAM is proposed in this paper to solve this problem efficiently.
+<li>We also design a new reference pixel-mapping method to solve hardware-consuming process for reference pixel-mapping in angle prediction. 
+Due to different reference pixels are needed in different angle modes, it costs so much if we use combinational logics. 
+So, in this paper, a method based on Looking Up Table (LUT) is proposed to accurately locate reference pixels without doing normal calculation.
+<li>To diminish hardware and energy costs, a universal address arbitration unit and multiplier-less, 
+4x4-based prediction calculation unit (PCU) is proposed in which integrates angle, planar and DC prediction.
+</ul>
+The hardware area of the proposed architecture is only 42K gates synthesized by Synopsis Toolkit. 
+Compared with previous works, it can greatly increase working throughputs and reduce hardware costs.
+
+<h2>Project 2:</h2>
+A Novel Compression and Acceleration Algorithm for Convolution Neural Network (CNN) and VLSI Implementation, Jan 2016 ~ Mar 2017.
+
+<b>Description</b>
+Convolutional Neural Network (CNN) models are computationally intensive and memory intensive, 
+and are difficult to be deployed on embedded systems for real world applications. 
+In this project, we study the convolution operations in the convolutional and fully-connected layers in CNN models, 
+and exploit the low-rank features of matrix multiplications to deal with these limitations. We have following achievements (contributions):
+<ul>
+<li>We apply the Singular Value Decomposition (SVD) for the weights matrix in the fully-connected layers, 
+and reserve the principal components of the singular vectors. 
+The resulting approximate parameters matrix can significantly reduce the size of the model.
+<li>We also introduce the SVD into the convolutional layers to factorize the convolution operations. 
+We decompose original single convolution layer intro two sub layers parameterized with approximated matrices obtained in previous SVD operation. 
+This can hold parallel characteristic properties during convolution and greatly reduce the multiplication operations in the convolutional layer. 
+<li>Benefit from the linear model (SVD) we used in the convolutional and fully-connected layer, 
+our compressed model can be further fine-tuned to fit the original dataset or a new dataset. 
+The obtained accuracy is competitive with that of the un-compressed model.
+<li>We investigate how the approximation of SVD in different convolutional layers affect performance, 
+and empirically choose the number of principal components for each layer. The accuracy of the compressed CNN model is even better than the original model.
+</ul>
+We have demonstrated the effectiveness and efficient of our proposed methods on several pre-trained models (e.g., AlexNet, VGG16 and VGG19) 
+and the corresponding hardware implementations in finished on the Xilinx FPGA platform. 
+The working frequency is 200HMZ. A batch with 64 224x224 images can be processed with 20ms for VGG16, which is 10 times faster than i7 CPU. 
+</pre>
 </body>
 </html>
